@@ -18,7 +18,8 @@ def main():
     for line in data.split():
         _line = line
         for number in numbers_spelled.keys():
-            _line = _line.replace(number, number[0] + numbers_spelled[number] + number[-1])
+            if numbers_spelled[number] in _line:
+                _line = _line.replace(number, number[0] + numbers_spelled[number] + number[-1])
         numbers = [c for c in _line if c.isdigit()]
         result += int(numbers[0] + numbers[-1])
     return result
